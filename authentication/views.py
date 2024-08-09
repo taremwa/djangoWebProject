@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 class UsernameValidationView (View):
     def post(self, request):
         data = json.loads(request.body)
-        username = data('username')
+        username = data['username']
 
         if not str(username).isalnum():
             return JsonResponse({'username_error':'username should only contain alphanumeric characters'}, status=400)
